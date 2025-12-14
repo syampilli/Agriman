@@ -11,14 +11,14 @@ connectDB();
 
 const app = express();
 
-// ✅ CORS configuration (IMPORTANT for Vercel frontend)
+/**
+ * ✅ CORS CONFIG (SAFE FOR VERCEL + LOCAL)
+ */
 app.use(
   cors({
-    origin: [
-      "http://localhost:5173",
-      "https://agriman.vercel.app"
-    ],
-    credentials: true,
+    origin: "*", // 👈 ALLOW ALL (BEST FOR DEPLOYMENT)
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    allowedHeaders: ["Content-Type", "Authorization"],
   })
 );
 
